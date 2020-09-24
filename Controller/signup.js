@@ -17,6 +17,7 @@ app.post("/", (req, res) => {
   const fn = req.body.fname;
   const ln = req.body.lname;
   const mail = req.body.email;
+  const pNumber = req.body.phone;
 
 // Check here -- https://mailchimp.com/developer/api/marketing/lists/batch-subscribe-or-unsubscibe/
   const data = {
@@ -25,7 +26,8 @@ app.post("/", (req, res) => {
       status: "subscribed",
       merge_fields: {
         FNAME: fn,
-        LNAME: ln
+        LNAME: ln,
+        PHONE: pNumber
       }
     }]
   };
